@@ -14,20 +14,21 @@ class CatFacts extends React.Component {
         this.state = {
             catinfo: 'Cats are cool animals.'
         };
+
+        this.fetchCatFact = this.fetchCatFact.bind(this);
     }
     
     fetchCatFact() {
-        console.log('fetching');
         fetch("https://meowfacts.herokuapp.com/")
             .then((res) => res.json())
-            .then((json) => console.log(json.data[0]))
+            .then((json) => this.setState({catinfo: json.data[0]}))
     }
 
     render() {
         return (
             <div>
                 <p>{this.state.catinfo}</p>
-                <button onClick={CatFacts.fetchCatFact}>New Cat Fact!</button>
+                <button onClick={this.fetchCatFact}>New Cat Fact!</button>
             </div>
         )
     }
