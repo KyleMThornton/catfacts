@@ -1,10 +1,34 @@
 import React from "react";
 import './CatFacts.css'
 
+// function fetchCatFact() {
+//     fetch("https://meowfacts.herokuapp.com/")
+//             .then((res) => res.json())
+//             .then((json) => json.data[0])
+// }
+
 class CatFacts extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            catinfo: 'Cats are cool animals.'
+        };
+    }
+    
+    fetchCatFact() {
+        console.log('fetching');
+        fetch("https://meowfacts.herokuapp.com/")
+            .then((res) => res.json())
+            .then((json) => console.log(json.data[0]))
+    }
+
     render() {
         return (
-            <p>This is a place holder for a cool cat fact!</p>
+            <div>
+                <p>{this.state.catinfo}</p>
+                <button onClick={CatFacts.fetchCatFact}>New Cat Fact!</button>
+            </div>
         )
     }
 }

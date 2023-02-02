@@ -1,4 +1,21 @@
+div {
+    display: flex;
+    flex-direction: column;
+}
+
 p {
     text-align: center;
-    padding-top: 3rem;
+    padding: 3rem;
+}
+
+button {
+    width: 10rem;
+    height: 4rem;
+    align-self: center;
+    background-color: white;
+}
+
+button:active {
+    background-color: whitesmoke;
+    font-weight: bold;
 }
